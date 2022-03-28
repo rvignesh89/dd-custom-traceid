@@ -5,6 +5,9 @@ require 'ddtrace'
 require 'logger'
 require 'pp'
 
+REPO = 'repo'
+PR_NUM = 2111
+
 DD_AGENT_HOST = ENV['DD_AGENT_HOST']
 DD_AGENT_PORT = ENV['DD_AGENT_PORT']
 
@@ -19,8 +22,6 @@ Datadog.configure do |c|
   c.diagnostics.startup_logs.enabled = false
 end
 
-REPO = 'repo'
-PR_NUM = 2111
 
 id = ZenGithub::Id.generate(REPO, PR_NUM)
 
